@@ -14,14 +14,33 @@
         android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_medium"
         android:id="@+id/textview_welcome_message" />
 
-    <GridView
+    <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gridView"
+        android:name="com.cita.wallet.app.fragments.AppSectionsFragment"
+        android:id="@+id/fragment"
         android:layout_below="@+id/textview_welcome_message"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/fragment_appsections_list"
+        android:layout_above="@+id/imgDecorator" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_ad"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ad" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgDecorator"
+        android:layout_above="@+id/img_ad"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/decorator" />
 
 </RelativeLayout>

@@ -1,17 +1,20 @@
 package com.cita.wallet.app;
 
-import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.cita.wallet.app.fragments.AppSectionsFragment;
+import com.cita.wallet.app.models.WalletUser;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import roboguice.util.temp.Ln;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseWalletActivity implements AppSectionsFragment.OnSectionClickListener {
     @InjectView(R.id.textview_welcome_message)
     TextView welcome_message;
 
@@ -21,26 +24,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        Resources res = getResources();
-        String text = String.format(res.getString(R.string.welcome_messages), "Bruce");
+        Bundle extras = getIntent().getExtras();
 
-        welcome_message.setText(text);
+        if (extras != null) {
+            WalletUser mUser = extras.getParcelable("user");
 
-//        // TODO: Move this to defaultActivity
-//        NewRelic.withApplicationToken(
-//                "new-relic-token" //TODO: Change Token For project
-//        ).start(this.getApplication());
-//
-//        // Get tracker.
-//        Tracker t = ((TemplateApplication) this.getApplication()).getTracker(
-//                TemplateApplication.TrackerName.APP_TRACKER);
-//
-//        // Set screen name.
-//        // Where path is a String representing the screen name.
-//        t.setScreenName("Main");
-//
-//        // Send a screen view.
-//        t.send(new HitBuilders.AppViewBuilder().build());
+            Resources res = getResources();
+            String text = String.format(res.getString(R.string.welcome_messages),
+                    mUser.getStudent_name());
+
+            welcome_message.setText(text);
+        }
 
     }
 
@@ -62,5 +56,11 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void OnSectionClick(String id) {
+        Ln.d("Section clicked");
     }
 }
