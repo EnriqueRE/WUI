@@ -36,7 +36,7 @@
             android:exported="false" />
 s
         <activity
-            android:name="com.cita.wallet.app.NFCACTIVITY"
+            android:name=".NfcActivity"
             android:label="@string/title_activity_nfcactivity"
             android:parentActivityName="com.cita.wallet.app.MainActivity" >
             <meta-data

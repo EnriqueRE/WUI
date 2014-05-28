@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OsmosisHexParse">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/OsmosisHexParse.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
