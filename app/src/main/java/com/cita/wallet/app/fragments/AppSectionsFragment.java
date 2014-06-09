@@ -4,19 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.cita.wallet.app.R;
 
 import com.cita.wallet.app.adapters.MainMenuAdapter;
-import com.cita.wallet.app.fragments.dummy.DummyContent;
+
 import com.cita.wallet.app.models.MainMenuItem;
 
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ import java.util.ArrayList;
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
  * <p/>
- * Activities containing this fragment MUST implement the {@link Callbacks}
+ * Activities containing this fragment MUST implement the Callbacks
  * interface.
  */
 public class AppSectionsFragment extends Fragment implements AbsListView.OnItemClickListener {
@@ -127,7 +125,7 @@ public class AppSectionsFragment extends Fragment implements AbsListView.OnItemC
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.OnSectionClick(DummyContent.ITEMS.get(position).id);
+            mListener.OnSectionClick(position);
         }
     }
 
@@ -156,7 +154,7 @@ public class AppSectionsFragment extends Fragment implements AbsListView.OnItemC
      */
     public interface OnSectionClickListener {
         // TODO: Update argument type and name
-        public void OnSectionClick(String id);
+        public void OnSectionClick(int position);
     }
 
 }

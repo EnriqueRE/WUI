@@ -1,5 +1,6 @@
 package com.cita.wallet.app;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
@@ -60,7 +61,28 @@ public class MainActivity extends BaseWalletActivity implements AppSectionsFragm
 
 
     @Override
-    public void OnSectionClick(String id) {
+    public void OnSectionClick(int position) {
         Ln.d("Section clicked");
+        Intent mIntent = null;
+
+        switch (position) {
+
+            case 0: //Vending
+                mIntent = new Intent(MainActivity.this, NfcActivity.class);
+                mIntent.putExtra("title", "Vending");
+                break;
+
+            case 1: //Estado de Cuenta
+
+                break;
+
+            case 2: //Accesos
+                mIntent = new Intent(MainActivity.this, NfcActivity.class);
+                mIntent.putExtra("title", "Accesos");
+                break;
+
+        }
+        startActivity(mIntent);
+
     }
 }

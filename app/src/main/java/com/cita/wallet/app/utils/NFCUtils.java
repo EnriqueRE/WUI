@@ -8,6 +8,11 @@ import android.nfc.NfcAdapter;
 import android.nfc.NfcManager;
 import android.util.Log;
 
+import com.gemalto.android.microsd.MicroSD;
+import com.gemalto.android.microsd.MicroSDMode;
+import com.gemalto.android.microsd.exception.NoMicroSDException;
+import com.gemalto.android.microsd.field.IFieldState;
+
 /**
  * Created by admin on 5/27/14.
  */

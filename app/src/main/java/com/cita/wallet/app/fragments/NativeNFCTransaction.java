@@ -131,8 +131,12 @@ public class NativeNFCTransaction extends Fragment {
 	public void onResume() {
 		super.onResume();
 
-        if (NFCUtils.hasMicroSD()) {
-            NFCUtils.enableTheMicroSD();
+        try {
+            if (NFCUtils.hasMicroSD()) {
+                NFCUtils.enableTheMicroSD();
+            }
+        } catch (NoMicroSDException e) {
+            e.printStackTrace();
         }
 
     }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.cita.wallet.app.fragments.NativeNFCTransaction;
 import com.cita.wallet.app.fragments.NoNFCFragment;
 import com.cita.wallet.app.utils.NFCUtils;
+import com.gemalto.android.microsd.exception.NoMicroSDException;
 
 
 public class NfcActivity extends Activity implements NativeNFCTransaction.OnNativeNFCFragmentInteractionListener {
@@ -42,15 +43,19 @@ public class NfcActivity extends Activity implements NativeNFCTransaction.OnNati
             // Check if the user has Gemalto MicroSD Card
             Log.v("NFC", "has a micro sd");
 
-            if (NFCUtils.hasMicroSD()) {
+            try {
+                if (NFCUtils.hasMicroSD()) {
 
-                //TODO:Replace Fragment
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(
-                                R.id.container,
-                                NativeNFCTransaction.newInstance("sd", ""))
-                        .commit();
+                    //TODO:Replace Fragment
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(
+                                    R.id.container,
+                                    NativeNFCTransaction.newInstance("sd", ""))
+                            .commit();
+                }
+            } catch (NoMicroSDException e) {
+                e.printStackTrace();
             }
 
         }

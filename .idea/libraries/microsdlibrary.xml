@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="microsdlibrary">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/microsdlibrary.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
